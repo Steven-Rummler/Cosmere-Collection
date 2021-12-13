@@ -12,5 +12,14 @@
   "item.cosmere_collection.talanael": "Talenel",
   "item.cosmere_collection.ishar": "Ishar",
   "item.cosmere_collection.soulstone": "Soulstone",
-  "item.cosmere_collection.hardened_soulstone": "Hardened Soulstone"
+  "item.cosmere_collection.hardened_soulstone": "Hardened Soulstone",
+  "item.cosmere_collection.explorer_stamp": "Explorer Stamp",
+  "item.cosmere_collection.explorer_stamp_inked": "Inked Explorer Stamp",
+  "item.cosmere_collection.explorer_stamp_soft": "Soft Explorer Stamp",
+  "item.cosmere_collection.fighter_stamp": "Fighter Stamp",
+  "item.cosmere_collection.fighter_stamp_inked": "Inked Fighter Stamp",
+  "item.cosmere_collection.fighter_stamp_soft": "Soft Fighter Stamp",
+  "item.cosmere_collection.miner_stamp": "Miner Stamp",
+  "item.cosmere_collection.miner_stamp_inked": "Inked Miner Stamp",
+  "item.cosmere_collection.miner_stamp_soft": "Soft Miner Stamp"
 }

@@ -81,15 +81,15 @@ public class CosmereCollection implements ModInitializer {
 			HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
 
 	// Stamps
-	public static final Item EXPLORER_STAMP = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item EXPLORER_STAMP_INKED = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item EXPLORER_STAMP_SOFT = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item FIGHTER_STAMP = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item FIGHTER_STAMP_INKED = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item FIGHTER_STAMP_SOFT = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item MINER_STAMP = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item MINER_STAMP_INKED = new Stamp(new FabricItemSettings().group(COSMERE));
-	public static final Item MINER_STAMP_SOFT = new Stamp(new FabricItemSettings().group(COSMERE));
+	public static final Item EXPLORER_STAMP = new Item(new FabricItemSettings().group(COSMERE));
+	public static final Item EXPLORER_STAMP_INKED = new InkedStamp(new FabricItemSettings().group(COSMERE));
+	public static final Item EXPLORER_STAMP_SOFT = new Item(new FabricItemSettings().group(COSMERE));
+	public static final Item FIGHTER_STAMP = new Item(new FabricItemSettings().group(COSMERE));
+	public static final Item FIGHTER_STAMP_INKED = new InkedStamp(new FabricItemSettings().group(COSMERE));
+	public static final Item FIGHTER_STAMP_SOFT = new Item(new FabricItemSettings().group(COSMERE));
+	public static final Item MINER_STAMP = new Item(new FabricItemSettings().group(COSMERE));
+	public static final Item MINER_STAMP_INKED = new InkedStamp(new FabricItemSettings().group(COSMERE));
+	public static final Item MINER_STAMP_SOFT = new Item(new FabricItemSettings().group(COSMERE));
 
 	@Override
 	public void onInitialize() {
@@ -128,15 +128,15 @@ public class CosmereCollection implements ModInitializer {
 						new Identifier("cosmere_collection", "overworld_soulstone")));
 
 		// Stamps
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "explorer_stamp"), EXPLORER_STAMP);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "explorer_stamp_inked"), EXPLORER_STAMP_INKED);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "explorer_stamp_soft"), EXPLORER_STAMP_SOFT);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "fighter_stamp"), FIGHTER_STAMP);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "fighter_stamp_inked"), FIGHTER_STAMP_INKED);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "fighter_stamp_soft"), FIGHTER_STAMP_SOFT);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "miner_stamp"), MINER_STAMP);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "miner_stamp_inked"), MINER_STAMP_INKED);
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "miner_stamp_soft"), MINER_STAMP_SOFT);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "explorer_stamp"), EXPLORER_STAMP);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "explorer_stamp_inked"), EXPLORER_STAMP_INKED);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "explorer_stamp_soft"), EXPLORER_STAMP_SOFT);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "fighter_stamp"), FIGHTER_STAMP);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "fighter_stamp_inked"), FIGHTER_STAMP_INKED);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "fighter_stamp_soft"), FIGHTER_STAMP_SOFT);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp"), MINER_STAMP);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp_inked"), MINER_STAMP_INKED);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp_soft"), MINER_STAMP_SOFT);
 	}
 
 
