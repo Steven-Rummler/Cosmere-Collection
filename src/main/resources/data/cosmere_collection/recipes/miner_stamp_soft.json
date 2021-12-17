@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmere_collection:soulstone"
+    },
+    {
+      "item": "minecraft:iron_pickaxe"
+    },
+    {
+      "item": "minecraft:iron_shovel"
+    }
+  ],
+  "result": {
+    "item": "cosmere_collection:miner_stamp_soft"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cosmere_collection:miner_stamp_soft"
+  },
+  "result": "cosmere_collection:miner_stamp",
+  "experience": 0.3,
+  "cookingtime": 200
+}

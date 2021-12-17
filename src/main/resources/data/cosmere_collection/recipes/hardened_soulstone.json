@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cosmere_collection:soulstone"
+  },
+  "result": "cosmere_collection:hardened_soulstone",
+  "experience": 0.3,
+  "cookingtime": 200
+}
