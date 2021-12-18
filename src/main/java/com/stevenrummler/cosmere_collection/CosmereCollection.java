@@ -7,7 +7,9 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.SandBlock;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -91,6 +93,10 @@ public class CosmereCollection implements ModInitializer {
 	public static final Item MINER_STAMP_INKED = new InkedStamp(new FabricItemSettings().group(COSMERE));
 	public static final Item MINER_STAMP_SOFT = new Item(new FabricItemSettings().group(COSMERE));
 
+	// Sand
+	public static final Block WHITE_SAND = new WhiteSandBlock(FabricBlockSettings.of(Material.SOIL));
+	public static final Block DARK_SAND = new FallingBlock(FabricBlockSettings.of(Material.SOIL));
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -137,6 +143,13 @@ public class CosmereCollection implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp"), MINER_STAMP);
 		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp_inked"), MINER_STAMP_INKED);
 		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp_soft"), MINER_STAMP_SOFT);
+
+		// Sand
+		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "white_sand"), WHITE_SAND);
+		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "dark_sand"), DARK_SAND);
+
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "white_sand"), new WhiteSand(WHITE_SAND, new FabricItemSettings().group(COSMERE)));
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "dark_sand"), new DarkSand(DARK_SAND, new FabricItemSettings().group(COSMERE)));
 	}
 
 
