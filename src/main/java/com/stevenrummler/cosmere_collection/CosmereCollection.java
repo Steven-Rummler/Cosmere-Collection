@@ -6,10 +6,16 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.Block;
-import net.minecraft.block.FallingBlock;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FluidBlock;
 import net.minecraft.block.Material;
-import net.minecraft.block.SandBlock;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -94,8 +100,17 @@ public class CosmereCollection implements ModInitializer {
 	public static final Item MINER_STAMP_SOFT = new Item(new FabricItemSettings().group(COSMERE));
 
 	// Sand
-	public static final Block WHITE_SAND = new WhiteSandBlock(FabricBlockSettings.of(Material.SOIL));
-	public static final Block DARK_SAND = new FallingBlock(FabricBlockSettings.of(Material.SOIL));
+	public static final Block WHITE_SAND_BLOCK = new WhiteSandBlock(FabricBlockSettings.of(Material.SOIL));
+	public static final Item WHITE_SAND = new WhiteSand(WHITE_SAND_BLOCK, new FabricItemSettings().group(COSMERE));
+	public static final Block DARK_SAND_BLOCK = new DarkSandBlock(FabricBlockSettings.of(Material.SOIL));
+	public static final Item DARK_SAND = new DarkSand(DARK_SAND_BLOCK, new FabricItemSettings().group(COSMERE));
+	public static final FlowableFluid STILL_QUICKSAND = new QuicksandFluid.Still();
+	public static final FlowableFluid FLOWING_QUICKSAND = new QuicksandFluid.Flowing();
+	public static final Item QUICKSAND_BUCKET = new BucketItem(STILL_QUICKSAND, new FabricItemSettings().group(COSMERE).recipeRemainder(Items.BUCKET).maxCount(1));
+	public static final Block QUICKSAND = new QuicksandBlock(STILL_QUICKSAND, FabricBlockSettings.copy(Blocks.WATER));
+
+	// Terha
+	public static final EntityType<TerhaEntity> TERHA = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TerhaEntity::new).dimensions(EntityDimensions.fixed(0.75f,0.75f)).build();
 
 	@Override
 	public void onInitialize() {
@@ -145,11 +160,19 @@ public class CosmereCollection implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "miner_stamp_soft"), MINER_STAMP_SOFT);
 
 		// Sand
-		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "white_sand"), WHITE_SAND);
-		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "dark_sand"), DARK_SAND);
+		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "white_sand"), WHITE_SAND_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection", "dark_sand"), DARK_SAND_BLOCK);
 
-		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "white_sand"), new WhiteSand(WHITE_SAND, new FabricItemSettings().group(COSMERE)));
-		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "dark_sand"), new DarkSand(DARK_SAND, new FabricItemSettings().group(COSMERE)));
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "white_sand"), WHITE_SAND);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "dark_sand"), DARK_SAND);
+
+		Registry.register(Registry.FLUID, new Identifier("cosmere_collection","quicksand"), STILL_QUICKSAND);
+		Registry.register(Registry.FLUID, new Identifier("cosmere_collection","flowing_quicksand"), FLOWING_QUICKSAND);
+		Registry.register(Registry.ITEM, new Identifier("cosmere_collection", "quicksand_bucket"), QUICKSAND_BUCKET);
+		Registry.register(Registry.BLOCK, new Identifier("cosmere_collection","quicksand"), QUICKSAND);
+
+		Registry.register(Registry.ENTITY_TYPE, new Identifier("cosmere_collection","terha"), TERHA);
+		FabricDefaultAttributeRegistry.register(TERHA, TerhaEntity.createMobAttributes());
 	}
 
 
